@@ -1,8 +1,4 @@
-defmodule Factorial do
-  def factorial(n) when n == 0 do
-      1
-  end
-  def factorial(n) do
-    n * factorial(n-1)
-end
+defmodule Fact do
+  def fact(0), do: 1
+  def fact(n), do: n * fact(n - 1)
 end
