@@ -15,9 +15,9 @@ defmodule ServerProcess do
             current_state
           )
 
-          send(caller, {:response, response})
+        send(caller, {:response, response})
 
-          loop(callback_module, new_state)
+        loop(callback_module, new_state)
     end
   end
 

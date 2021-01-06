@@ -1,5 +1,5 @@
 defmodule Case do
-  def max(a,b) do
+  def max(a, b) do
     case a > b do
       true -> a
       false -> b
