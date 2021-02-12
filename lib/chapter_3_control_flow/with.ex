@@ -29,6 +29,23 @@ defmodule With do
     end
   end
 
+  def extract_user_with_map(user) do
+    case Enum.filter(
+           ["login", "email", "password"],
+           &(not Map.has_key?(user, &1))
+         ) do
+      [] ->
+        %{
+          login: extract_login(user),
+          email: extract_email(user),
+          password: extract_password(user)
+        }
+
+      missing_fields ->
+        IO.puts("the following fields are missing: #{Enum.join(missing_fields, ",")}")
+    end
+  end
+
   defp extract_login(%{"login" => login}), do: {:ok, login}
   defp extract_login(_), do: {:error, "missing login"}
 
